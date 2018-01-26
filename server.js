@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname,'dist')));
 app.use('/api',api)
 
 app.get('*',(req,res)=>{
-    res.sendfile(path.join(__dirname,'dist/index.html'))
+    res.sendFile(path.join(__dirname,'dist/index.html'))
 })
 
 const port=process.env.port || 3000;

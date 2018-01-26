@@ -16,6 +16,8 @@ app.use(express.static(path.join(__dirname,'dist')));
 app.use('/api',api)
 
 app.get('*',(req,res)=>{
+    res.setHeader("Cache-Control", "public, max-age=2592000");
+    res.setHeader("Expires", new Date(Date.now() + 2592000000).toUTCString());
     res.sendFile(path.join(__dirname,'dist/index.html'))
 })
 

@@ -1,9 +1,12 @@
 const express = require('express');
+var compression = require('compression')
 const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const app = express();
 const api = require ('./server/routes/api');
+
+app.use(compression())
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
